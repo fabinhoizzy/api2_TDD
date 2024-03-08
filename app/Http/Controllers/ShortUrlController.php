@@ -16,7 +16,7 @@ class ShortUrlController extends Controller
 
         $code = CodeGenerator::run();
 
-        $shortUrl = ShortUrl::query()->create([
+        $shortUrl = ShortUrl::query()->firstOrCreate([
             'url' => request('url'),
             'short_url' => config('api.url') . '/' . $code,
             'code' => $code,
