@@ -10,11 +10,14 @@ class ShortUrlController extends Controller
 {
     public function store()
     {
-        $url = request('url');
+        request()->validate([
+            'url' => 'required|url',
+        ]);
+
         $code = CodeGenerator::run();
 
         $shortUrl = ShortUrl::query()->create([
-            'url' => $url,
+            'url' => request('url'),
             'short_url' => config('api.url') . '/' . $code,
             'code' => $code,
         ]);
