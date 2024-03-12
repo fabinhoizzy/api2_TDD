@@ -29,4 +29,34 @@ class ShortUrlController extends Controller
             'short_url' => $shortUrl->short_url,
         ], Response::HTTP_CREATED);
     }
+
+    public function destroy(ShortUrl $shortUrl): JsonResponse
+    {
+        $shortUrl->delete();
+
+        return response()->json([], Response::HTTP_NO_CONTENT);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
