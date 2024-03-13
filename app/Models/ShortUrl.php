@@ -19,7 +19,7 @@ class ShortUrl extends Model
         return $this->hasMany(Visit::class);
     }
 
-    public function getLastVisitAtribute(): Carbon
+    public function getLastVisitAttribute(): Carbon
     {
         return $this->visits()->latest()->first()->created_at;
     }

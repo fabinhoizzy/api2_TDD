@@ -9,5 +9,5 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Visit extends Model
 {
-
+    use HasFactory;
 }

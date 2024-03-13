@@ -52,14 +52,14 @@ class CreateTest extends TestCase
     {
         ShortUrl::factory()->create([
            'url' => 'https://www.google.com',
-            'short_url' => config('app.url') . '/12345',
-            'code' => '12345'
+            'short_url' => config('app.url') . '/123456',
+            'code' => '123456'
         ]);
 
         $this->postJson(route('api.short-url.store'),
         ['url' => 'https://www.google.com']
             )->assertJson([
-                'short_url' => config('app.url') . '/12345',
+                'short_url' => config('app.url') . '/123456',
         ]);
 
         $this->assertDatabaseCount('short_urls', 1);
